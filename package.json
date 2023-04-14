@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "co": "sui-mono commit",
+    "serve": "turbo run serve --no-cache --continue",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
