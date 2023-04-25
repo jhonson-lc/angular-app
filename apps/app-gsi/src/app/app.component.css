@@ -3,7 +3,7 @@ mat-sidenav-container{
 }
 
 mat-sidenav{
-  width:100%;
+  height: 100%;
   max-width: 280px;
   background-color: rgb(45,50,62);
 }
@@ -12,7 +12,8 @@ mat-sidenav{
   padding: 0 24px;
   background-color: rgb(30,33,40);
   color:white;
-  min-height: 64px;
+  max-height: 64px;
+  height: 100%;
 }
 
 .opciones h3{
