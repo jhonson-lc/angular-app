@@ -1,1 +1,16 @@
-<p>menu works!</p>
+<mat-nav-list fxLayout="column" fxLayoutAlign="space-between center">
+        <mat-list-item *ngFor="let menu of listaMenu" role="listitem">
+          <a [routerLink]="menu.url">
+            <button mat-icon-button class="menu__icon">
+              <img [src]="menu.icon" alt="home" />
+              <span *ngIf="expand">{{menu.title}}</span>
+            </button>
+          </a>
+        </mat-list-item>
+        <mat-list-item fxLayout="column">
+            <button mat-icon-button color="accent" (click)="toggleExpand()">
+              <mat-icon *ngIf="expand">arrow_back_ios</mat-icon>
+              <mat-icon *ngIf="!expand">arrow_forward_ios</mat-icon>
+            </button>
+        </mat-list-item>
+</mat-nav-list>
