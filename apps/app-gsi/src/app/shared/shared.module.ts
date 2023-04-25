@@ -7,7 +7,11 @@ import { KeypadButtonComponent } from './components/keypad-button/keypad-button.
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ContainerComponent } from './components/container/container.component';
 import { TableComponent } from './components/table/table.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,7 +25,12 @@ import { TableComponent } from './components/table/table.component';
     TableComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatIconModule
   ],
   exports: [
     PaginatorComponent,
