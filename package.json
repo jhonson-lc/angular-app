@@ -23,5 +23,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "ngx-perfect-scrollbar": "^10.1.1"
+  }
 }

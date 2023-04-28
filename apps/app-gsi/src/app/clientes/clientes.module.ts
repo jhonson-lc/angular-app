@@ -19,7 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     ClientesRoutingModule,
     SharedModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+  ],
 })
 export class ClientesModule { }

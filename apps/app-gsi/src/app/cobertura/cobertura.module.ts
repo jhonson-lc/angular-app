@@ -5,6 +5,7 @@ import { CoberturaRoutingModule } from './cobertura-routing.module';
 import { PageListComponent } from './pages/page-list/page-list.component';
 import { FormComponent } from './components/form/form.component';
 import { CoberturaComponent } from './services/cobertura/cobertura.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CoberturaComponent } from './services/cobertura/cobertura.component';
   ],
   imports: [
     CommonModule,
-    CoberturaRoutingModule
+    CoberturaRoutingModule,
+    SharedModule
   ]
 })
 export class CoberturaModule { }

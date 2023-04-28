@@ -12,7 +12,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     MatToolbarModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
   exports: [
     PaginatorComponent,
@@ -39,7 +43,15 @@ import { MatIconModule } from '@angular/material/icon';
     KeypadButtonComponent,
     ConfirmComponent,
     ContainerComponent,
-    TableComponent
-  ]
+    TableComponent,
+    PerfectScrollbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatTooltipModule
+  ],
 })
+
+
+
 export class SharedModule { }
