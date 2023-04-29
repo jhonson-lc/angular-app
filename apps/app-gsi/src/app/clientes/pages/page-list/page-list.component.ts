@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MetadataColumn } from 'src/app/interfaces/metadatacolumn.interface';
 import { environment } from 'src/enviroments/enviroments';
+import { FormComponent } from '../../components/form/form.component';
+import { KeypadButton } from 'src/app/interfaces/keypadbutton.interface';
 
 @Component({
   selector: 'gsi-page-list',
@@ -149,7 +152,7 @@ export class PageListComponent {
 
   totalRegistros = this.data.length
 
-  constructor(){
+  constructor(private dialog:MatDialog){
     this.cargarClientes()
   }
 
@@ -167,6 +170,61 @@ export class PageListComponent {
     this.data = this.regitros.slice(salto, salto + pageSize);
   }
 
-  abrirFormulario(){}
+  abrirFormulario(fila:any = null){
+    const opciones = {
+      panelClass: 'panel-container',
+      disabledClose: true,
+      data: fila
+    }
+
+    const referencia:MatDialogRef<FormComponent> = this.dialog.open(FormComponent, opciones)
+
+    referencia.afterClosed().subscribe((data:any) => {
+      if(data.id){
+        const index = this.regitros.findIndex((registro) => registro._id === data.id);
+        const cliente = this.regitros[index];
+        this.regitros[index] = {
+          ...cliente,
+          ...data
+        };
+        this.cargarClientes();
+      }else{
+        const formConId = {
+          _id: this.regitros.length + 1,
+          ...data
+        }
+        this.regitros.push(formConId);
+        this.cargarClientes();
+      }
+    }
+
+    )
+  }
+
   eliminar(){}
+
+  keypadButtons:KeypadButton[] = [
+    {
+      icon: "cloud_download",
+      color: "accent",
+      tooltip: "Exportar",
+      accion: "download"
+    },
+    {
+      icon: "add",
+      color: "primary",
+      tooltip: "Agregar",
+      accion: "nuevo"
+    },
+  ]
+
+  enviarAccion(accion:string){
+    switch(accion){
+      case "nuevo":
+        this.abrirFormulario()
+        break;
+      case "download":
+        break;
+    }
+  }
 }
