@@ -15,7 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatToolbarModule,
     MatTableModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatButtonModule
   ],
   exports: [
     PaginatorComponent,
@@ -48,7 +54,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
   ],
 })
 
