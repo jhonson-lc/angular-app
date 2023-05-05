@@ -1,0 +1,61 @@
+<mat-toolbar fxLayout fxLayoutAlign="space-between center">
+  <h3>{{titulo}}</h3>
+  <button mat-icon-button mat-dialog-close="">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-dialog-content>
+  <form fxLayout="column" [formGroup]="formulario">
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha</mat-label>
+      <input required matInput placeholder="Fecha" type="date" formControlName="fecha">
+      <mat-icon matSuffix>calendar_today</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cliente</mat-label>
+      <input required matInput placeholder="Cédula del cliente" type="text" formControlName="cliente">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input type="text" matInput formControlName="celular">
+      <mat-icon matSuffix>contact_phone</mat-icon>
+    </mat-form-field>
+    <div fxLayout fxLayoutGap="10px">
+      <mat-form-field appearance="outline">
+        <mat-label>Producto</mat-label>
+        <input type="text" matInput formControlName="producto">
+        <mat-icon matSuffix>shopping_cart</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <input type="number" matInput formControlName="cantidad">
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Forma de pago</mat-label>
+      <input type="text" matInput formControlName="formadepago">
+      <mat-icon matSuffix>monetization_on</mat-icon>
+    </mat-form-field>
+    <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+      <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      [disabled]="formulario.invalid"
+      (click)="grabar()"
+      >
+      Grabar
+      </button>
+      <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      mat-dialog-close
+      >
+      Cancelar
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>
