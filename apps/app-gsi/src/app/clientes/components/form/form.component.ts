@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PageListComponent } from '../../pages/page-list/page-list.component';
 
 @Component({
   selector: 'gsi-form',
