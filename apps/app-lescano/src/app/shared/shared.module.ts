@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorComponent } from './components/paginator/paginator.component';
-import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ContainerComponent } from './components/container/container.component';
 import { TableComponent } from './components/table/table.component';
 import {MatCardModule} from '@angular/material/card';
@@ -21,7 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     PaginatorComponent,
-    ConfirmComponent,
     ContainerComponent,
     TableComponent
   ],
@@ -38,7 +36,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     PaginatorComponent,
-    ConfirmComponent,
     ContainerComponent,
     TableComponent,
     PerfectScrollbarModule,
