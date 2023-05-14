@@ -4,6 +4,7 @@ import { MetadataColumn } from 'src/app/interfaces/metadatacolumn.interface';
 import { environment } from 'src/enviroments/enviroments';
 import { FormComponent } from '../../components/form/form.component';
 import { KeypadButton } from 'src/app/interfaces/keypadbutton.interface';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'gsi-page-list',
@@ -152,14 +153,21 @@ export class PageListComponent {
 
   totalRegistros = this.data.length
 
-  constructor(private dialog:MatDialog){
+  constructor(private dialog:MatDialog,
+    private clienteService:ClienteService){
     this.cargarClientes()
   }
 
   cargarClientes(){
-    this.data = this.regitros
-    this.totalRegistros = this.data.length
-    this.changePage(0)
+    // this.data = this.regitros
+    // this.totalRegistros = this.data.length
+    // this.changePage(0)
+
+    this.clienteService.cargarClientes().subscribe((db) => {
+      this.data = db.data.clientes;
+      this.totalRegistros = this.data.length;
+      this.changePage(0);
+    })
   }
 
   changePage(page:number){
@@ -167,7 +175,7 @@ export class PageListComponent {
 
     const salto = pageSize * page;
 
-    this.data = this.regitros.slice(salto, salto + pageSize);
+    this.data = this.data.slice(salto, salto + pageSize);
   }
 
   abrirFormulario(fila:any = null){
@@ -179,29 +187,26 @@ export class PageListComponent {
 
     const referencia:MatDialogRef<FormComponent> = this.dialog.open(FormComponent, opciones)
 
-    referencia.afterClosed().subscribe((data:any) => {
+    referencia.afterClosed().subscribe((data) => {
       if(data.id){
-        const index = this.regitros.findIndex((registro) => registro._id === data.id);
-        const cliente = this.regitros[index];
-        this.regitros[index] = {
-          ...cliente,
-          ...data
-        };
-        this.cargarClientes();
+        this.clienteService.actualizarCliente(data.id,data).subscribe((db) => {
+          this.cargarClientes();
+        })
       }else{
-        const formConId = {
-          _id: this.regitros.length + 1,
-          ...data
-        }
-        this.regitros.push(formConId);
-        this.cargarClientes();
+        this.clienteService.registrarCliente(data).subscribe((db) => {
+          this.cargarClientes();
+        })
       }
     }
 
     )
   }
 
-  eliminar(){}
+  eliminar(fila:any = null){
+    this.clienteService.eliminarCliente(fila._id).subscribe((db) => {
+      this.cargarClientes();
+    })
+  }
 
   keypadButtons:KeypadButton[] = [
     {
