@@ -50,8 +50,12 @@ export class MenuService {
       title: 'Usuarios',
       url: '/usuarios',
       icon: '/assets/icons/users.svg'
+    },
+    {
+      title: 'Reportes',
+      url: '/reportes',
+      icon: '/assets/icons/stock.svg'
     }
-
   ]
   constructor() { }
 
