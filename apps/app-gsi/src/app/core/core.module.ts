@@ -1,28 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { CoreRoutingModule } from './core-routing.module';
-import { HeaderComponent } from './components/header/header.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { LoginComponent } from './components/login/login.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { PageLoginComponent } from './pages/page-login/page-login.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-
+import { CoreRoutingModule } from "./core-routing.module";
+import { HeaderComponent } from "./components/header/header.component";
+import { MenuComponent } from "./components/menu/menu.component";
+import { LoginComponent } from "./components/login/login.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { PageLoginComponent } from "./pages/page-login/page-login.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    MenuComponent,
-    LoginComponent,
-    PageLoginComponent
-  ],
+  declarations: [HeaderComponent, MenuComponent, LoginComponent, PageLoginComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -33,13 +28,9 @@ import {MatListModule} from '@angular/material/list';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
   ],
-  exports: [
-    HeaderComponent,
-    MenuComponent,
-    LoginComponent,
-    PageLoginComponent
-  ]
+  exports: [HeaderComponent, MenuComponent, LoginComponent, PageLoginComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

@@ -1,16 +1,24 @@
-<form fxLayout="column" fxLayoutAlign="center center">
+<form fxLayout="column" fxLayoutAlign="center center" [formGroup]="group">
   <h2>Credenciales</h2>
   <mat-form-field appearance="outline">
     <mat-label>Usuario</mat-label>
-    <input required matInput placeholder="Usuario" type="text">
+    <input required matInput placeholder="Usuario" type="text" formControlName="username" />
     <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Contraseña</mat-label>
-    <input required matInput placeholder="Contraseña" type="{{hidePassword?'password':'text'}}">
-    <button mat-icon-button type="button" matSuffix (click)="hidePassword=!hidePassword">
-      <mat-icon matSuffix>{{hidePassword ? "lock" : "lock_open"}}</mat-icon>
+    <input
+      required
+      matInput
+      placeholder="Contraseña"
+      formControlName="password"
+      type="{{ hidePassword ? 'password' : 'text' }}"
+    />
+    <button mat-icon-button type="button" matSuffix (click)="hidePassword = !hidePassword">
+      <mat-icon matSuffix>{{ hidePassword ? "lock" : "lock_open" }}</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-raised-button color="primary">Iniciar sesión</button>
+  <button [disabled]="group.invalid" (click)="login()" mat-raised-button color="primary">
+    Iniciar sesión
+  </button>
 </form>

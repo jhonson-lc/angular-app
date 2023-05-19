@@ -1,9 +1,7 @@
 <mat-sidenav-container autosize="true">
   <mat-sidenav opened="true" mode="side">
     <div class="opciones">
-      <h3 *ngIf="expand">
-        Opciones de navegación
-      </h3>
+      <h3 *ngIf="expand">Opciones de navegación</h3>
     </div>
     <gsi-menu (toggleMenu)="toggleExpand($event)"></gsi-menu>
   </mat-sidenav>

@@ -1,10 +1,11 @@
 <section fxLayout="column" fxLayoutGap="10px">
-  <button mat-fab
-  *ngFor="let button of keypadButtons"
-  [color]="button.color"
-  [matTooltip]="button.tooltip"
-  (click)="enviarAccion(button.accion)"
+  <button
+    mat-fab
+    *ngFor="let button of keypadButtons"
+    [color]="button.color"
+    [matTooltip]="button.tooltip"
+    (click)="enviarAccion(button.accion)"
   >
-    <mat-icon>{{button.icon}}</mat-icon>
+    <mat-icon>{{ button.icon }}</mat-icon>
   </button>
 </section>

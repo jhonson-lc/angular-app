@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    PAGE_SIZE: 6,
-}
+  production: false,
+  PAGE_SIZE: 6,
+};

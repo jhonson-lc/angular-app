@@ -1,15 +1,15 @@
-img{
+img {
   width: 40px;
   height: 40px;
   filter: invert(100%);
 }
 
-mat-toolbar{
+mat-toolbar {
   background-color: #3f5191;
-  height:80px;
+  height: 80px;
 }
 
-h2{
+h2 {
   color: white;
   font-size: 30px;
   margin-top: 20px;

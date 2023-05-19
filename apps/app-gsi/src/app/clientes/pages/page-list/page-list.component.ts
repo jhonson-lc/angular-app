@@ -1,164 +1,163 @@
-import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MetadataColumn } from 'src/app/interfaces/metadatacolumn.interface';
-import { environment } from 'src/enviroments/enviroments';
-import { FormComponent } from '../../components/form/form.component';
-import { KeypadButton } from 'src/app/interfaces/keypadbutton.interface';
-import { ClienteService } from '../../services/cliente.service';
+import { Component } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { MetadataColumn } from "src/app/interfaces/metadatacolumn.interface";
+import { environment } from "src/enviroments/enviroments";
+import { FormComponent } from "../../components/form/form.component";
+import { KeypadButton } from "src/app/interfaces/keypadbutton.interface";
+import { ClienteService } from "../../services/cliente.service";
 
 @Component({
-  selector: 'gsi-page-list',
-  templateUrl: './page-list.component.html',
-  styleUrls: ['./page-list.component.css']
+  selector: "gsi-page-list",
+  templateUrl: "./page-list.component.html",
+  styleUrls: ["./page-list.component.css"],
 })
 export class PageListComponent {
   regitros: {
-    _id: string,
-    nombresCompletos: string,
-    direccion:string,
-    fechadeNacimiento:string,
-    celular:string
+    _id: string;
+    nombresCompletos: string;
+    direccion: string;
+    fechadeNacimiento: string;
+    celular: string;
   }[] = [
     {
-      _id:"1",
-      nombresCompletos:"Carlos Ayala",
+      _id: "1",
+      nombresCompletos: "Carlos Ayala",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"2",
-      nombresCompletos:"Juan Perez",
+      _id: "2",
+      nombresCompletos: "Juan Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"3",
-      nombresCompletos:"Maria Perez",
+      _id: "3",
+      nombresCompletos: "Maria Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"4",
-      nombresCompletos:"Pedro Perez",
+      _id: "4",
+      nombresCompletos: "Pedro Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"5",
-      nombresCompletos:"Jose Perez",
+      _id: "5",
+      nombresCompletos: "Jose Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"6",
-      nombresCompletos:"Carlos Ayala",
+      _id: "6",
+      nombresCompletos: "Carlos Ayala",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"7",
-      nombresCompletos:"Juan Perez",
+      _id: "7",
+      nombresCompletos: "Juan Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"8",
-      nombresCompletos:"Maria Perez",
+      _id: "8",
+      nombresCompletos: "Maria Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"9",
-      nombresCompletos:"Pedro Perez",
+      _id: "9",
+      nombresCompletos: "Pedro Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"10",
-      nombresCompletos:"Jose Perez",
+      _id: "10",
+      nombresCompletos: "Jose Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"11",
-      nombresCompletos:"Carlos Ayala",
+      _id: "11",
+      nombresCompletos: "Carlos Ayala",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"12",
-      nombresCompletos:"Juan Perez",
+      _id: "12",
+      nombresCompletos: "Juan Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"13",
-      nombresCompletos:"Maria Perez",
+      _id: "13",
+      nombresCompletos: "Maria Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"14",
-      nombresCompletos:"Pedro Perez",
+      _id: "14",
+      nombresCompletos: "Pedro Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
+      celular: "0987654321",
     },
     {
-      _id:"15",
-      nombresCompletos:"Jose Perez",
+      _id: "15",
+      nombresCompletos: "Jose Perez",
       direccion: "Av. Ambato",
       fechadeNacimiento: "10/12/1999",
-      celular: "0987654321"
-    }
-  ]
+      celular: "0987654321",
+    },
+  ];
 
-  metaDataColumns:MetadataColumn[] = [
+  metaDataColumns: MetadataColumn[] = [
     {
       field: "_id",
-      title: "ID"
+      title: "ID",
     },
     {
       field: "nombresCompletos",
-      title: "Nombres Completos"
+      title: "Nombres Completos",
     },
     {
       field: "direccion",
-      title: "Dirección"
+      title: "Dirección",
     },
     {
       field: "fechadeNacimiento",
-      title: "Fecha de Nacimiento"
+      title: "Fecha de Nacimiento",
     },
     {
       field: "celular",
-      title: "Celular"
-    }
-  ]
+      title: "Celular",
+    },
+  ];
 
-  data:any[] = []
+  data: any[] = [];
 
-  totalRegistros = this.data.length
+  totalRegistros = this.data.length;
 
-  constructor(private dialog:MatDialog,
-    private clienteService:ClienteService){
-    this.cargarClientes()
+  constructor(private dialog: MatDialog, private clienteService: ClienteService) {
+    this.cargarClientes();
   }
 
-  cargarClientes(){
+  cargarClientes() {
     // this.data = this.regitros
     // this.totalRegistros = this.data.length
     // this.changePage(0)
@@ -167,10 +166,10 @@ export class PageListComponent {
       this.data = db.data.clientes;
       this.totalRegistros = this.data.length;
       this.changePage(0);
-    })
+    });
   }
 
-  changePage(page:number){
+  changePage(page: number) {
     const pageSize = environment.PAGE_SIZE;
 
     const salto = pageSize * page;
@@ -178,55 +177,53 @@ export class PageListComponent {
     this.data = this.data.slice(salto, salto + pageSize);
   }
 
-  abrirFormulario(fila:any = null){
+  abrirFormulario(fila: any = null) {
     const opciones = {
-      panelClass: 'panel-container',
+      panelClass: "panel-container",
       disabledClose: true,
-      data: fila
-    }
+      data: fila,
+    };
 
-    const referencia:MatDialogRef<FormComponent> = this.dialog.open(FormComponent, opciones)
+    const referencia: MatDialogRef<FormComponent> = this.dialog.open(FormComponent, opciones);
 
     referencia.afterClosed().subscribe((data) => {
-      if(data.id){
-        this.clienteService.actualizarCliente(data.id,data).subscribe((db) => {
+      if (data.id) {
+        this.clienteService.actualizarCliente(data.id, data).subscribe((db) => {
           this.cargarClientes();
-        })
-      }else{
+        });
+      } else {
         this.clienteService.registrarCliente(data).subscribe((db) => {
           this.cargarClientes();
-        })
+        });
       }
-    }
-
-    )
+    });
   }
 
-  eliminar(fila:any = null){
+  eliminar(fila: any = null) {
     this.clienteService.eliminarCliente(fila._id).subscribe((db) => {
       this.cargarClientes();
-    })
+    });
   }
 
-  keypadButtons:KeypadButton[] = [
+  keypadButtons: KeypadButton[] = [
     {
       icon: "cloud_download",
       color: "accent",
       tooltip: "Exportar",
-      accion: "download"
+      accion: "download",
     },
     {
       icon: "add",
       color: "primary",
       tooltip: "Agregar",
-      accion: "nuevo"
+      accion: "nuevo",
     },
-  ]
+  ];
 
-  enviarAccion(accion:string){
-    switch(accion){
+  enviarAccion(accion: string) {
+    switch (accion) {
       case "nuevo":
-        this.abrirFormulario()
+        this.abrirFormulario();
         break;
       case "download":
         break;

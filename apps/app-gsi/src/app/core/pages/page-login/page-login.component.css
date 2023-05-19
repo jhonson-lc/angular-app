@@ -1,23 +1,23 @@
-.container{
+.container {
   width: 100%;
   background-color: #000;
 }
 
-.information{
+.information {
   padding: 150px;
 }
 
-.information h2{
+.information h2 {
   color: #fff;
   font-size: 42px;
   line-height: 46px;
-  text-align:center
+  text-align: center;
 }
 
-.information img{
+.information img {
   max-width: 300px;
 }
 
-.login{
+.login {
   background-color: #fff;
 }

@@ -1,22 +1,22 @@
-.perfil{
-    height: 100%;
+.perfil {
+  height: 100%;
 }
 
-.perfil img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.perfil img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.perfil span{
-  color:white;
+.perfil span {
+  color: white;
 }
 
-.perfil mat-icon{
-  color:white;
+.perfil mat-icon {
+  color: white;
 }
 
-mat-toolbar{
+mat-toolbar {
   background-color: #3f51b5;
 }

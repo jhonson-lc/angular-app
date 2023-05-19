@@ -1,4 +1,4 @@
-export class Cliente{
+export class Cliente {
   _id?: string;
   nombresCompletos: string;
   direccion: string;
@@ -9,8 +9,8 @@ export class Cliente{
     nombresCompletos: string,
     direccion: string,
     fechadeNacimiento: Date,
-    celular: string
-  ){
+    celular: string,
+  ) {
     this.nombresCompletos = nombresCompletos;
     this.direccion = direccion;
     this.fechadeNacimiento = fechadeNacimiento;

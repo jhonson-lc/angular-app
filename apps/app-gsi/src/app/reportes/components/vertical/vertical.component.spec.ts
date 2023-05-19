@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { VerticalComponent } from './vertical.component';
+import { VerticalComponent } from "./vertical.component";
 
-describe('VerticalComponent', () => {
+describe("VerticalComponent", () => {
   let component: VerticalComponent;
   let fixture: ComponentFixture<VerticalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerticalComponent ]
-    })
-    .compileComponents();
+      declarations: [VerticalComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(VerticalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
