@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const jwt = require("jsonwebtoken");
 
 exports.createUser = async (req, res) => {
   try {
@@ -100,5 +101,24 @@ exports.deleteUser = async (req, res) => {
       status: "fail",
       message: error,
     });
+  }
+};
+
+exports.obtenerUsuario = async (req, res) => {
+  try {
+    const username = req.query.username;
+    const password = req.query.password;
+
+    let usuario = await User.findOne({username, password});
+    const token = jwt.sign({_id: usuario._id}, "secretkey");
+
+    if (!usuario) {
+      return res.status(404).json({msg: "No existe el usuario"});
+    }
+
+    res.json({token});
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo problemas al cargar");
   }
 };
