@@ -3,6 +3,7 @@ const express = require("express");
 const db = require("./config/db");
 const clientRouter = require("./routes/clientRouter");
 const userRouter = require("./routes/userRouter");
+const teamRouter = require("./routes/teamRouter");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use("/api/clientes", clientRouter);
 app.use("/api/users", userRouter);
+app.use("/api/teams", teamRouter);
 
 const PORT = 3001;
 app.listen(PORT);
