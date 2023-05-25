@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ProductosModule} from "./productos/productos.module";
+import {ProductosModule} from "./productos/equipos.module";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {ProductosModule} from "./productos/productos.module";
     MatSidenavModule,
     CoreModule,
     BrowserAnimationsModule,
-    ProductosModule
+    ProductosModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

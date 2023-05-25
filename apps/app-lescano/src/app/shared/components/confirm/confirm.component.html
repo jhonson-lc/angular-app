@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>
+  Confirmación
+</h1>
+<div mat-dialog-content>{{mensaje}}</div>
+<div mat-dialog-actions align="end">
+  <button mat-button style="color: #fff;background-color: #ff0000;" (click)="dialogRef.close(true)">Confimar</button>
+  <button mat-button (click)="dialogRef.close(false)">Cancelar</button>
+</div>

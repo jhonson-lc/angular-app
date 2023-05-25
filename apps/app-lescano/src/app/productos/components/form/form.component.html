@@ -12,32 +12,27 @@
       <mat-icon matSuffix>calendar_today</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Cliente</mat-label>
-      <input required matInput placeholder="Cédula del cliente" type="text" formControlName="cliente">
-      <mat-icon matSuffix>person</mat-icon>
+      <mat-label>Club</mat-label>
+      <input type="text" matInput formControlName="club">
+      <mat-icon matSuffix>people</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Celular</mat-label>
-      <input type="text" matInput formControlName="celular">
-      <mat-icon matSuffix>contact_phone</mat-icon>
+      <mat-label>Encargado</mat-label>
+      <input required matInput placeholder="Encargado" type="text" formControlName="encargado">
+      <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
     <div fxLayout fxLayoutGap="10px">
       <mat-form-field appearance="outline">
-        <mat-label>Producto</mat-label>
-        <input type="text" matInput formControlName="producto">
-        <mat-icon matSuffix>shopping_cart</mat-icon>
+        <mat-label>Télefono</mat-label>
+        <input type="text" matInput formControlName="telefono">
+        <mat-icon matSuffix>contact_phone</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Cantidad</mat-label>
-        <input type="number" matInput formControlName="cantidad">
-        <mat-icon matSuffix>attach_money</mat-icon>
+        <mat-label>Ciudad</mat-label>
+        <input type="text" matInput formControlName="ciudad">
+        <mat-icon matSuffix>room</mat-icon>
       </mat-form-field>
     </div>
-    <mat-form-field appearance="outline">
-      <mat-label>Forma de pago</mat-label>
-      <input type="text" matInput formControlName="formadepago">
-      <mat-icon matSuffix>monetization_on</mat-icon>
-    </mat-form-field>
     <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
       <button
       mat-raised-button

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { environment } from 'src/enviroments/enviroments';
 
 @Component({
-  selector: 'gsi-paginator',
+  selector: 'les-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.css']
 })

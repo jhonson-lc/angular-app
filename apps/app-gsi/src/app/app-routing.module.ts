@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { PageLoginComponent } from "./core/pages/page-login/page-login.component";
+import { IsAuthenticatedGuard } from "./helper/services/is-authenticated.guard";
 
 const routes: Routes = [
   {
@@ -9,38 +10,47 @@ const routes: Routes = [
   },
   {
     path: "clientes",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./clientes/clientes.module").then((m) => m.ClientesModule),
   },
   {
     path: "cobertura",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./cobertura/cobertura.module").then((m) => m.CoberturaModule),
   },
   {
     path: "planes",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./planes/planes.module").then((m) => m.PlanesModule),
   },
   {
     path: "proveedores",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./clientes/clientes.module").then((m) => m.ClientesModule),
   },
   {
     path: "usuarios",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./usuarios/usuarios.module").then((m) => m.UsuariosModule),
   },
   {
     path: "stock",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./stock/stock.module").then((m) => m.StockModule),
   },
   {
     path: "soporte",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./soporte/soporte.module").then((m) => m.SoporteModule),
   },
   {
     path: "tecnicos",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./tecnicos/tecnicos.module").then((m) => m.TecnicosModule),
   },
   {
     path: "reportes",
+    canActivate: [IsAuthenticatedGuard],
     loadChildren: () => import("./reportes/reportes.module").then((m) => m.ReportesModule),
   },
 ];

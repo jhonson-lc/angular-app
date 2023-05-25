@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthenticationService } from "src/app/helper/services/authentication.service";
 
 @Component({
   selector: "gsi-login",
@@ -10,7 +12,7 @@ export class LoginComponent {
   hidePassword = true;
   group: FormGroup;
 
-  constructor() {
+  constructor(private authService: AuthenticationService, private router: Router) {
     this.group = new FormGroup({
       username: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
@@ -18,6 +20,10 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.group.value);
+    this.authService
+      .login(this.group.value.username, this.group.value.password)
+      .subscribe((response) => {
+        this.router.navigate(["/reportes"]);
+      });
   }
 }

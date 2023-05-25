@@ -4,7 +4,7 @@ import { MatColumnDef, MatTable } from '@angular/material/table';
 import { MetadataColumn } from 'src/app/interfaces/metadatacolumn.interface';
 
 @Component({
-  selector: 'gsi-table',
+  selector: 'les-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })

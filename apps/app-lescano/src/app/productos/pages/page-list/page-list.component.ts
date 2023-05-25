@@ -4,6 +4,8 @@ import { MetadataColumn } from 'src/app/interfaces/metadatacolumn.interface';
 import { environment } from 'src/enviroments/enviroments';
 import { FormComponent } from '../../components/form/form.component';
 import { KeypadButton } from 'src/app/interfaces/keypadbutton.interface';
+import { EquipoService } from '../../services/equipo.service';
+import { ConfirmComponent } from 'src/app/shared/components/confirm/confirm.component';
 
 @Component({
   selector: 'les-page-list',
@@ -14,22 +16,11 @@ export class PageListComponent {
   regitros: {
     _id: string,
     fecha: string,
-    cliente:string,
-    celular:string,
-    producto:string,
-    cantidad: number,
-    formadepago:string;
-  }[] = [
-   {
-    _id: "1",
-    fecha: "2021-09-01",
-    cliente:"Juan Perez",
-    celular:"123456789",
-    producto:"Arroz",
-    cantidad: 15,
-    formadepago: "Efectivo"
-   }
-  ]
+    club:string,
+    telefono:string,
+    encargado:string,
+    ciudad: string,
+  }[] = []
 
   metaDataColumns:MetadataColumn[] = [
     {
@@ -37,28 +28,23 @@ export class PageListComponent {
       title: "ID"
     },
     {
-      field: "fecha",
+      field: "club",
+      title: "Club"
+    },
+    {
+      field: "ciudad",
+      title: "Ciudad"
+    },
+    {
+      field: "telefono",
+      title: "Telefono"
+    },
+    {
+      field: "encargado",
+      title: "Encargado"
+    },
+    { field: "fecha",
       title: "Fecha"
-    },
-    {
-      field: "cliente",
-      title: "Cliente"
-    },
-    {
-      field: "celular",
-      title: "Celular"
-    },
-    {
-      field: "producto",
-      title: "Producto"
-    },
-    {
-      field: "cantidad",
-      title: "Cantidad"
-    },
-    {
-      field: "formadepago",
-      title: "Forma de pago"
     }
   ]
 
@@ -66,14 +52,23 @@ export class PageListComponent {
 
   totalRegistros = this.data.length
 
-  constructor(private dialog:MatDialog){
-    this.cargarClientes()
+  dialogRef !: MatDialogRef<ConfirmComponent>;
+
+
+  constructor(private dialog:MatDialog,private equipoService:EquipoService){
+    this.cargarEquipos()
   }
 
-  cargarClientes(){
-    this.data = this.regitros
-    this.totalRegistros = this.data.length
-    this.changePage(0)
+  cargarEquipos(){
+    // this.data = this.regitros
+    // this.totalRegistros = this.data.length
+    // this.changePage(0)
+
+    this.equipoService.cargarEquipos().subscribe((db) => {
+      this.data = db.data.teams;
+      this.totalRegistros = this.data.length;
+      this.changePage(0);
+    });
   }
 
   changePage(page:number){
@@ -81,7 +76,7 @@ export class PageListComponent {
 
     const salto = pageSize * page;
 
-    this.data = this.regitros.slice(salto, salto + pageSize);
+    this.data = this.data.slice(salto, salto + pageSize);
   }
 
   abrirFormulario(fila:any = null){
@@ -93,39 +88,35 @@ export class PageListComponent {
     const referencia:MatDialogRef<FormComponent> = this.dialog.open(FormComponent, opciones)
 
     referencia.afterClosed().subscribe((data:any) => {
-        const index = this.regitros.findIndex((registro) => registro._id === data.id);
-        const cliente = this.regitros[index];
-        this.regitros[index] = {
-          ...cliente,
-          ...data
-        };
-        this.cargarClientes();
+      if (data.id) {
+        this.equipoService.actualizarEquipo(data.id, data).subscribe(() => {
+          this.cargarEquipos();
+        });
+      } else {
+        this.equipoService.registrarEquipo(data).subscribe(() => {
+          this.cargarEquipos();
+        });
+      }
     }
     )
   }
 
-  recibirDatos(data: any) {
-    const formConId = {
-      _id: this.regitros.length + 1,
-      ...data
-    }
-    this.regitros.push(formConId);
-    this.cargarClientes();
-  }
-
   eliminar(fila:any = null){
-    const index = this.regitros.findIndex((registro) => registro._id === fila._id);
-    this.regitros.splice(index, 1);
-    this.cargarClientes();
+    this.dialogRef = this.dialog.open(ConfirmComponent, {
+      disableClose: false
+    });
+    this.dialogRef.componentInstance.mensaje = "Está seguro de eliminar este club?"
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.equipoService.eliminarEquipo(fila._id).subscribe(() => {
+          this.cargarEquipos();
+        });
+      }
+    });
   }
 
   keypadButtons:KeypadButton[] = [
-    {
-      icon: "cloud_download",
-      color: "accent",
-      tooltip: "Exportar",
-      accion: "download"
-    },
     {
       icon: "add",
       color: "primary",
@@ -139,8 +130,9 @@ export class PageListComponent {
       case "nuevo":
         this.abrirFormulario()
         break;
-      case "download":
-        break;
     }
+  }
+  eliminarAccion(accion:string){
+    console.log("eliminarAccion",accion)
   }
 }

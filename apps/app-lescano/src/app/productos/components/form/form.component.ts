@@ -28,11 +28,10 @@ export class FormComponent {
       this.formulario = new FormGroup({
         id: new FormControl(this.data?._id),
         fecha: new FormControl(this.data?.fecha,Validators.required),
-        cliente: new FormControl(this.data?.cliente,Validators.required),
-        producto: new FormControl(this.data?.producto,Validators.required),
-        cantidad: new FormControl(this.data?.cantidad,Validators.required),
-        celular: new FormControl(this.data?.celular),
-        formadepago: new FormControl(this.data?.formadepago)
+        club: new FormControl(this.data?.club,Validators.required),
+        encargado: new FormControl(this.data?.encargado,Validators.required),
+        ciudad: new FormControl(this.data?.ciudad,Validators.required),
+        telefono: new FormControl(this.data?.telefono,Validators.required),
       })
     }
 }
